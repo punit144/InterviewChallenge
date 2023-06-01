@@ -28,6 +28,7 @@ module "securitygroup" {
   security_group_name = var.security_group_name
   security_rules      = var.security_rules
   location            = var.location
+  subnet_id           = module.networking.subnet_id
 }
 
 module "database" {

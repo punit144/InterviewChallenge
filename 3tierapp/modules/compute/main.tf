@@ -8,11 +8,11 @@ resource "azurerm_network_interface" "fnic" {
     name                          = "${var.fend_hostname}-nic-config"
     subnet_id                     = var.subnet_id[0]
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.vm_public_ip.id
+    public_ip_address_id          = azurerm_public_ip.fvm_public_ip.id
   }
 }
 
-resource "azurerm_public_ip" "vm_public_ip" {
+resource "azurerm_public_ip" "fvm_public_ip" {
   name                = "${var.fend_hostname}-publicip"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -62,11 +62,11 @@ resource "azurerm_network_interface" "bnic" {
     name                          = "${var.bend_hostname}-nic-config"
     subnet_id                     = var.subnet_id[1]
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.vm_public_ip.id
+    public_ip_address_id          = azurerm_public_ip.bvm_public_ip.id
   }
 }
 
-resource "azurerm_public_ip" "vm_public_ip" {
+resource "azurerm_public_ip" "bvm_public_ip" {
   name                = "${var.bend_hostname}-publicip"
   location            = var.location
   resource_group_name = var.resource_group_name

@@ -14,3 +14,4 @@ variable "security_rules" {
   }))
 }
 variable "location" {}
+variable "subnet_id" {}

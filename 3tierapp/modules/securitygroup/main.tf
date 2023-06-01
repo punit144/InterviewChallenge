@@ -20,17 +20,13 @@ resource "azurerm_network_security_group" "security_group" {
   }
 }
 
-output "security_group_id" {
-  value       = azurerm_network_security_group.security_group.id
+# Associate network security group with subnets
+resource "azurerm_subnet_network_security_group_association" "attach-subnet" {
+  count                    = length(var.subnet_id)
+  subnet_id                 = var.subnet_id[count.index]
+  network_security_group_id = azurerm_network_security_group.security_group.id
 }
 
-# Attach security group to all subnets under a specific VNet
-resource "azurerm_subnet" "subnet" {
-  count               = length(var.subnet_names)
-  name                = var.subnet_names[count.index]
-  resource_group_name = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = [var.subnet_cidrs[count.index]]
-
-  network_security_group_id = azurerm_network_security_group.security_group.id
+output "security_group_id" {
+  value       = azurerm_network_security_group.security_group.id
 }
