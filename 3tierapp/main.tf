@@ -49,7 +49,10 @@ module "compute" {
   vm_size             = var.vm_size
   subnet_id           = module.networking.subnet_id
   security_group_id   = module.securitygroup.security_group_id
-  vm_hostname = var.vm_hostname
-  vm_username = var.vm_username
-  vm_password = var.vm_password
+  fend_hostname = var.fend_hostname
+  fend_username = var.fend_username
+  fend_password = var.fend_password
+  bend_hostname = var.bend_hostname
+  bend_username = var.bend_username
+  bend_password = var.bend_password
 }

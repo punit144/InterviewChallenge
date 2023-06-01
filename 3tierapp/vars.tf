@@ -22,12 +22,15 @@ variable "security_rules" {
     destination_address_prefix = string
   }))
 }
-variable "database_name" {}
 variable "virtual_machine_name" {}
 variable "vm_size" {}
-variable "vm_hostname" {}
-variable "vm_username" {}
-variable "vm_password" {}
+variable "fend_hostname" {}
+variable "fend_username" {}
+variable "fend_password" {}
+variable "bend_hostname" {}
+variable "bend_username" {}
+variable "bend_password" {}
 
+variable "database_name" {}
 variable "primary_database_admin" {}
 variable "primary_database_password" {}

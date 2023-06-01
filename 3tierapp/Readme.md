@@ -1,6 +1,9 @@
 # 3-Tier Environment on Azure
 
-Reference: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+Reference: 
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+https://github.com/hashicorp/terraform-provider-azurerm
+https://mariadb.com/kb/en/documentation/
 
 This Terraform configuration deploys a 3-tier environment on Azure cloud. The environment consists of the following tiers:
 

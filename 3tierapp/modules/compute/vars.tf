@@ -2,8 +2,11 @@ variable "resource_group_name" {}
 variable "location" {}
 variable "virtual_machine_name" {}
 variable "vm_size" {}
-variable "vm_hostname" {}
-variable "vm_username" {}
-variable "vm_password" {}
+variable "fend_hostname" {}
+variable "fend_username" {}
+variable "fend_password" {}
 variable "subnet_id" {}
 variable "security_group_id" {}
+variable "bend_hostname" {}
+variable "bend_username" {}
+variable "bend_password" {}
