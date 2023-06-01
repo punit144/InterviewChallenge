@@ -1,0 +1,9 @@
+variable "resource_group_name" {}
+variable "location" {}
+variable "virtual_machine_name" {}
+variable "vm_size" {}
+variable "vm_hostname" {}
+variable "vm_username" {}
+variable "vm_password" {}
+variable "subnet_id" {}
+variable "security_group_id" {}
