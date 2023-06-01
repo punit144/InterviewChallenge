@@ -35,7 +35,7 @@ resource "azurerm_virtual_machine" "fapp" {
   }
 
   storage_os_disk {
-    name = "vm-disk"
+    name = "fapp-disk"
     caching = "ReadWrite"
     create_option = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -54,7 +54,7 @@ resource "azurerm_virtual_machine" "fapp" {
 
 # Compute resources backend
 resource "azurerm_network_interface" "bnic" {
-  name                = "${var.fend_hostname}-nic"
+  name                = "${var.bend_hostname}-nic"
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -62,15 +62,7 @@ resource "azurerm_network_interface" "bnic" {
     name                          = "${var.bend_hostname}-nic-config"
     subnet_id                     = var.subnet_id[1]
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.bvm_public_ip.id
   }
-}
-
-resource "azurerm_public_ip" "bvm_public_ip" {
-  name                = "${var.bend_hostname}-publicip"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  allocation_method   = "Dynamic"
 }
 
 resource "azurerm_virtual_machine" "bapp" {
@@ -89,7 +81,7 @@ resource "azurerm_virtual_machine" "bapp" {
   }
 
   storage_os_disk {
-    name = "vm-disk"
+    name = "bapp-disk"
     caching = "ReadWrite"
     create_option = "FromImage"
     managed_disk_type = "Standard_LRS"
